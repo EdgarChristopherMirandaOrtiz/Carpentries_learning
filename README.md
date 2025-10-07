@@ -74,6 +74,38 @@ When we want to publish a paer we surely will need to **public our sequencing da
 **Bioproject information/reference:**
 <img width="697" height="389" alt="image" src="https://github.com/user-attachments/assets/c770a4d1-4313-4dbd-939f-7cf541a5caa2" />
 
+- **[1]** Go to database center → NCBI
+- **[2]** Search the "bioproject"
+- **[3]** Go to "Project Data"
+- **[4]** Clicl on the number of SRA experiments, this case is 40
+<img width="445" height="208" alt="image" src="https://github.com/user-attachments/assets/b0e890a0-60de-40c2-af16-30144763b065" />
+
+- **[5]** Go to "SRA Run Selector" to see the collection of all the experimental data
+<img width="1918" height="1197" alt="image" src="https://github.com/user-attachments/assets/17536c91-7b4c-4ff9-b802-91eb355e774f" />
+<img width="1918" height="1198" alt="image" src="https://github.com/user-attachments/assets/0753d3c3-42d6-43cb-bfbe-a6f8c08511c2" />
+
+- **[6]** See  “Common Fields”, “Select”, and “Found 40 Items”
+<img width="1918" height="1199" alt="image" src="https://github.com/user-attachments/assets/15c0bda1-8d08-4aaf-90e0-4f0ad8eacfa7" />
+
+  -  **"Select"** contains information about the run size and the data and metadata table; there were 40 runs, 9.86 GBytes of data, and 19.61 Gbases.
+  -  **“Found 40 items section”** is a table where each row contains id numbers, an alias name, size and links to data for one sample. Within “Found 40 Items”, click on the first Run number
+
+- **[7]** Click on the first Run number (Column “Run”, Row “1”)
+
+In the image we see the SRA entry ERR2143758. This metadata tab displays run’s quality and GC content among other information.
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/166d61ee-978e-48a1-a6ff-4b75201eadbb" />
+
+- **[8]** Go back, and then clic on "Metadata"
+
+button to download the file “SraRunTable.txt” and save it on your computer
+
+<img width="1918" height="1198" alt="image" src="https://github.com/user-attachments/assets/b22d36f7-a132-4aea-98a4-208779483dd3" />
+
+- **[9]** Open the SraRunTable.txt file
+
+Docuemnts usually are separated by commas or tabs, so they are named with the .csv (comma-separated values) and .tsv(tab-separated values) extensions, respectively. But since they are both plain text files, you can find them with the .txt extension
+
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/2c3b8faf-4e56-4d10-bfa3-c1b6dbc1f8ab" />
 
 
 
