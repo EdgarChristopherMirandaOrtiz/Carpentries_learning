@@ -119,13 +119,31 @@ Docuemnts usually are separated by commas or tabs, so they are named with the .c
 
 # SHELL
 
-## A shell is a computer program that allos you to control your computer using commands entered with a **keyboard**, insteas of controlling the graphical user interface (GUIs)
+A shell is a computer program that allos you to control your computer using commands entered with a **keyboard**, insteas of controlling the graphical user interface (GUIs)
 
 - Many bioinformatics tools can onnly be used through a command line interface, also could have extracapabilities
 - The sheel makes it less boring →a Atuomate repetitive tasks ans leave of files
 - Work less error-prone. Humans can make mistakes even by ten times of doing the same
 - Large amount of cimputing power → Meaning using remote computers or cloud computing
-- 
+
+      clear → literally clears the terminal from script, not lost any info
+
+      PS1='\W\$ ' → Shows the ultimate directory. Here is home directory (~)
+
+      $ → prompt wainting for input
+
+      pwd → print working directory ¿Where are we?
+
+      ls → listing, to know
+
+<img width="412" height="136" alt="image" src="https://github.com/user-attachments/assets/9c9bc84c-b8f6-4968-802d-e911112065ad" />
+
+    cd → change directory, followed by a directoy name
+  
+<img width="471" height="104" alt="image" src="https://github.com/user-attachments/assets/ce3c004c-4326-41ce-ac93-b9b925cd5e96" />
+
+    -F → a flag "/" to see if it's a file or a folder (directory)
+
 
 
 
