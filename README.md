@@ -117,6 +117,16 @@ Docuemnts usually are separated by commas or tabs, so they are named with the .c
 <img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/2c3b8faf-4e56-4d10-bfa3-c1b6dbc1f8ab" />
 
 
+# SHELL
+
+## A shell is a computer program that allos you to control your computer using commands entered with a **keyboard**, insteas of controlling the graphical user interface (GUIs)
+
+- Many bioinformatics tools can onnly be used through a command line interface, also could have extracapabilities
+- The sheel makes it less boring →a Atuomate repetitive tasks ans leave of files
+- Work less error-prone. Humans can make mistakes even by ten times of doing the same
+- Large amount of cimputing power → Meaning using remote computers or cloud computing
+- 
+
 
 
 
