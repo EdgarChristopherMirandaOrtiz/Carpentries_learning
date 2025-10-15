@@ -265,7 +265,7 @@ as we can see, all after * is what is searched
 
 <img width="1723" height="126" alt="image" src="https://github.com/user-attachments/assets/5ebdc5ac-2e03-4eb2-ae30-68a74e7a27cd" />
 
-## FastQ interpretation
+### FastQ interpretation
 
 
 **Line - Description**
@@ -288,7 +288,50 @@ This quality score is **logarithmically based**, so a quality score of 10 reflec
 
 
 
-# CREATING MOVING, COPYING AND REMOVING
+### COPYING FILES
+
+    cp [orignal name document] [name of the copy document] → gives the original document and the copied one 
+
+<img width="1326" height="93" alt="image" src="https://github.com/user-attachments/assets/676f43aa-5ab0-4f3f-8245-1e3adabbff05" />
+
+
+### CREATING DIRECTORIES
+
+    mkdir [directory's name] → make a directory, do not add the "[]" jsjs
+
+<img width="1444" height="69" alt="image" src="https://github.com/user-attachments/assets/076e8ad7-bfb9-4b75-8b7d-f0f5beab4985" />
+
+
+### MOVING FILES
+
+    mv [FIle name] [Directory where it'll be placed]
+
+<img width="885" height="84" alt="image" src="https://github.com/user-attachments/assets/9d8f510a-dae6-4fdd-93fd-43a04e5d51a3" />
+
+
+### RENAMING FILES
+
+    mv [original name] [new name] → to change one file's name or directory's name
+
+<img width="1071" height="118" alt="image" src="https://github.com/user-attachments/assets/4a2e70de-1fa4-4e17-854b-e8460d0e7d76" />
+
+<img width="1218" height="149" alt="image" src="https://github.com/user-attachments/assets/15a26f57-c8b9-4472-887e-76e9ed1c6dff" />
+
+
+### REMOVING FILES or DIRECTORIES
+
+> [!CAUTION]
+> **rm permanently removes, they're really gone**
+
+    rm [file's name] → remove files
+    rm -r [directory's name] → remove directory and all files withing it. If some write-protected files you'll be asked to overrride our permission
+
+<img width="955" height="41" alt="image" src="https://github.com/user-attachments/assets/f4853a1d-a38f-4116-88ca-68e777ecc5a1" />
+
+<img width="1171" height="108" alt="image" src="https://github.com/user-attachments/assets/7bb6d9e2-b829-42b9-80f6-4d403c56942a" />
+
+<img width="772" height="169" alt="image" src="https://github.com/user-attachments/assets/1a92d641-3ea5-4759-abcd-f55d7c264799" />
+
 
 
 
