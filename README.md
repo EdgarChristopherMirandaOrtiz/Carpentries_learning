@@ -175,5 +175,123 @@ Format for storing information about sequencing reads and their quality
 
 ### Shortcut: Tab completion
 
+    tab → The "tab" key as in the console is used to autocomplete de name
+
+    **When we have 2 or more documents/directories with the same prefix, we're gonna obtain as a result XXX_R and by clicking other 2 "tab" "tab" the options will be displeid
+
+<img width="659" height="126" alt="image" src="https://github.com/user-attachments/assets/59030507-a84a-47da-b934-3f4d26cf2e56" />
+
+<img width="1590" height="134" alt="image" src="https://github.com/user-attachments/assets/61021d0d-e67f-455c-92b6-6f95bcf9df43" />
+
+### Navigating files and Directions
+
+    cd → doesn't recognise directories if it is not on the current directory or if it is level above the one we are
+
+    cd .. → is the one that lets you go back
+
+<img width="1711" height="266" alt="image" src="https://github.com/user-attachments/assets/9be970ca-e282-45ad-b166-5c92dd47d4b8" />
+
+### Hiding directories
+
+    cd <tab> <tab> → by clicking appears the list of item, even those who are hidden
+
+<img width="1121" height="211" alt="image" src="https://github.com/user-attachments/assets/0ca25b10-0f30-499b-b1fd-16d8b3620ad8" />
+
+    ls -a is another way to find the hidden directories
+
+### Current permissions of a file
+
+This is useful when we want ot protect our documents from delitionor overwriting
+
+    ls -l → means "long for the ls command, its L not 1
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/0d558bb6-5f1f-4217-9f51-8496e00fca4d" />
+
+<img width="504" height="96" alt="image" src="https://github.com/user-attachments/assets/e82bd1c3-c42f-4611-a4f0-c64ce9cdb6f5" />
+
+# Working with files
+
+    ls *.fastq → used to list all the ".fastq" terminal files
+    la *R1.fastq → lists all the "*R1.fastq"
+
+as we can see, all after * is what is searched
+    
+<img width="684" height="50" alt="image" src="https://github.com/user-attachments/assets/31931221-b8a7-4820-be04-539c6267aab2" />
+
+### Other useful commands
+
+    Ctrl C → cancel the command you are writing
+    Ctrl R → reverse-search
+    Ctrl L → clear the screen
+
+### History commands
+
+    history → the history of comands
+
+    !271 → will call the command 271 of the history
+
+<img width="654" height="273" alt="image" src="https://github.com/user-attachments/assets/49b98831-2e9e-4d74-8102-c9fdf6477904" />
+
+# Examining files
+
+    cat → used to read files, but it open it even if big
+    Ctrl C → to stop
+
+<img width="1749" height="318" alt="image" src="https://github.com/user-attachments/assets/02c7598b-643b-41d5-b124-6870b4c6d3e4" />
+
+    less → will open the read mode
+    
+    Space → go forward
+    b → go backward
+    g → beginning
+    G → end
+    q → quit
+    /[word] → search a specific word from the beginning of the document or forward
+    ?[word] → search a specific word from the end of the document or backwards
+
+<img width="1748" height="305" alt="image" src="https://github.com/user-attachments/assets/d9b87416-ccb3-42c0-93e9-419762b6c178" />
+
+    head → beginning of a doc
+
+<img width="1730" height="264" alt="image" src="https://github.com/user-attachments/assets/b5b0ea5c-5edd-4de2-8251-a48330ce8f31" />
+
+    tail → end of a doc
+
+<img width="1738" height="257" alt="image" src="https://github.com/user-attachments/assets/e8e42bff-e7c6-4310-bf9d-9477ce98559e" />
+
+    -n # → shoes the first or last n lines of a file when "head" or "tail"
+    
+<img width="1730" height="102" alt="image" src="https://github.com/user-attachments/assets/a23d8e35-e4a7-4079-992c-2c878e8ac7ac" />
+
+<img width="1723" height="126" alt="image" src="https://github.com/user-attachments/assets/5ebdc5ac-2e03-4eb2-ae30-68a74e7a27cd" />
+
+## FastQ interpretation
+
+
+**Line - Description**
+- [1]	Always begins with ‘@’ and then information about the read
+- [2]	The actual DNA sequence
+- [3]	Always begins with a ‘+’ and sometimes the same info in line 1
+- [4]	Has a string of characters which represent the quality scores; must have same number of characters as line 2
+
+<img width="1723" height="137" alt="image" src="https://github.com/user-attachments/assets/c0040d07-12b6-4459-8276-41347fb74c74" />
+This is actually a good read!
+
+Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the probability of an incorrect base call
+
+Each character is assigned a quality score between 0 and 42 as shown in the chart below.
+
+<img width="486" height="97" alt="image" src="https://github.com/user-attachments/assets/b8ce6392-dee4-4a09-a273-561a86636a70" />
+Each quality score represents the probability that the corresponding nucleotide call is incorrect.
+
+This quality score is **logarithmically based**, so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. 
+
+
+
+# CREATING MOVING, COPYING AND REMOVING
+
+
+
+
 
 
