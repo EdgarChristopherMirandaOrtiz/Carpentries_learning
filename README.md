@@ -144,14 +144,36 @@ A shell is a computer program that allos you to control your computer using comm
 
     -F → a flag "/" to see if it's a file or a folder (directory)
 
+<img width="440" height="138" alt="image" src="https://github.com/user-attachments/assets/7b039576-7855-49b8-bccb-c585f98c16ed" />
 
+    man ls → To see other funtions
+    tab → the next page
+    b → backwards
+    q → quit
 
+<img width="627" height="221" alt="image" src="https://github.com/user-attachments/assets/8c86fb0d-baa6-4ccd-87be-a5ee640dcce9" />
 
+    ls -1 → to see more infor woth the list setnisire
 
+<img width="545" height="271" alt="image" src="https://github.com/user-attachments/assets/6a6d5dbc-2d87-4abf-89a1-e92ad3014d32" />
 
+### Untrimmed_fastq directory
 
+<img width="503" height="154" alt="image" src="https://github.com/user-attachments/assets/1d2e79bc-b693-4117-81e9-7ac8ea333da4" />
 
+<img width="1035" height="215" alt="image" src="https://github.com/user-attachments/assets/e7e45ae0-c6e6-47c7-85b5-d830d7264bae" />
 
+File  TruSeq3-PE.fa and .fastq.gz (GZ is an archive file compressed)
+
+### FASTQ 
+
+Format for storing information about sequencing reads and their quality
+
+    gunzip → to descompess the files so that we can look at the FastQ format
+
+<img width="1176" height="197" alt="image" src="https://github.com/user-attachments/assets/ed6857f2-7a4b-48d0-9486-96c5daef9350" />
+
+### Shortcut: Tab completion
 
 
 
