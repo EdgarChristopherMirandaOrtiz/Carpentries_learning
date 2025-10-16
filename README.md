@@ -714,6 +714,8 @@ There are two ways to obtain the metagenomics from a complex sample:
 
 -SPECIFIC SPECIES AND GENES
 
+-total number of tRNA genes.
+
 We **sequence random parts** (ideally all of them) of the genomes present in the sample
 
 We can search the **origin of the pieces** (taxonomy, classification) and what **part of genome** they correspong
@@ -732,7 +734,7 @@ Requeries *ENOUGH DNA*
 
 ### Metabarcoding
 
--Just general GENES
+-Just general GENES, only one region of the genome is amplified
 
 ↓ Cheaper → we can easily have duplicates or even triplicates
 
@@ -751,6 +753,40 @@ Most popular amplicon used for this methodology are 16S amplicons for Bacteria s
 ### METADATA
 
 The data about our data: notes on the origin of our samples and how we treated them
+
+# 4 CIENEGAS
+
+Cuatro Ciénegas is an oasis in the Mexican desert whose environmental conditions are often linked to the ones present in ancient seas, due to a higher-than-average content of sulfur and magnesium but a lower concentrations of phosphorus and other nutrients
+
+Compared the differences between the microbial community in its natural, oligotrophic, phosphorus-deficient environment, a pond from the Cuatro Ciénegas Basin (CCB), and the same microbial community under a fertilization treatmen
+
+!! Mean bacterial genome size, GC content, total number of tRNA genes, total number of rRNA genes, and codon usage bias were significantly changed when the bacterial community underwent the treatment.
+
+### METAGENOMICS DATABASES
+
+MG-RAST, MGnify, Marine Metagenomics Portal, Terrestrial Metagenome DB and the GM Repo
+
+### 4 cienegas data
+
+https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811
+
+<img width="723" height="228" alt="image" src="https://github.com/user-attachments/assets/bab10994-d22a-4a4d-8e50-62798e32e685" />
+
+
+# BIO-INFORMATIC WORKFLOWS
+
+The raw reads obtained from the high-throughput sequencing data must pass throfuh several tools to generate the final disired output
+
+Example: 
+
+<img width="765" height="926" alt="image" src="https://github.com/user-attachments/assets/fbf8ea91-2941-40f2-aac1-66475bda280b" />
+
+### QUALITY CONTROL
+
+
+
+
+
 
 
     
