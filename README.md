@@ -577,7 +577,53 @@ We have two main options/programs:
 
 ### Moving files computer-instance
 
-s
+Upload
+
+    scp [file name to upload] [direction where it is on computer]
+    scp local_file.txt dcuser@ip.address:/home/dcuser/
+
+Download 
+
+    csp [direction and file's name on instance] [direction where we want it to be downloaded]
+
+# ORGANIZATION
+
+**IS ESSENTIIAL**
+
+It is often overlooked (pasar por alto) amidst (en medio de) the exciment of getting a fisrt lok at the new data.
+
+For now we consider *BASIC*:
+
+- Design of the sequencing experiment
+- Biologic question
+- Appropiate samples
+- Enough statistical power to answer
+
+# Creating THE DIRECTORIES
+
+    cd
+    pwd
+    mkdir workshop
+    mkdir workshop/docs
+    mkdir workshop/data
+    mkdir workshop/results
+
+<img width="490" height="245" alt="image" src="https://github.com/user-attachments/assets/25b0d04b-a51e-4aa1-be24-c46ac0b477a3" />
+
+    ls -R shows the contect in each sub-directories
+
+<img width="667" height="200" alt="image" src="https://github.com/user-attachments/assets/3787743a-ec78-4f01-9fa5-796835913874" />
+
+> [!CAUTION]
+> **ALWAYS** save a copy of the raw data, a file(s) you never modified
+
+Separtate data from result files
+
+Data → New data, obtained, not results but input
+Results → New documents generated, as output, by the terminal, etc.
+Dos → written analysis, thought about the eventual publication, notes, etc.
+
+
 
 
 
