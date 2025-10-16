@@ -653,4 +653,106 @@ Here I will remove "history line" number 474, add comments
 > Mantain your bitacora out of the archives and subdirectories
 > I mean, if you delete a directorie It'll be useful as the protocols were in the main home and weren't errased
 
+### Move files backwards in directories
 
+Here "." means move the final file/directory en the "location I am standing"
+
+    mv workshop/docs/workshop_log_2025_10_06.sh .
+
+<img width="1056" height="87" alt="image" src="https://github.com/user-attachments/assets/0fab43ea-db3c-4ad3-9db1-05516df59ae2" />
+
+
+# R STUDIO
+
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/e8217974-6eab-4225-a868-9cab3b965d9b" />
+
+### DATA STRUCTURE
+
+Differenct ways of recognizing data in R called data structure
+
+### Vector
+
+Sequence of data of the same type
+
+    vec <- c("a", "b", "c")
+    typeof(vec) % To see which type of data is the one loaded in the "vec" vector
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/f69bc3a5-9bb5-4ae6-b829-15eadfdd04f0" />
+
+### Factor
+
+Hols the names of categories "levels" and a set of the data in those categories
+
+     fac <- as.factor(vec)
+     fac
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/b036dfdc-221d-49a9-952d-841b44f50919" />
+
+# METAGENOMICS
+
+Are collections of genomic sequences from various (micro)organisms that coexist in a given space
+
+They are *snapshots* that shows us part of the taxonomic and even metabolic or functional composition.
+
+Since they are a ***mixture of sequences***:
+
+- What species are represented in the smaple?
+- What are they capable to do?
+
+- Species in a niche → taxonomic assignation of the sequences
+- Capabilities → in genes directly encoded
+- Etc.
+
+# SHOTGUN & AMPLICON
+
+There are two ways to obtain the metagenomics from a complex sample:
+
+- Shotgun metagenomics
+- Metabarcoding
+
+### Shotgun metagenomics
+
+-SPECIFIC SPECIES AND GENES
+
+We **sequence random parts** (ideally all of them) of the genomes present in the sample
+
+We can search the **origin of the pieces** (taxonomy, classification) and what **part of genome** they correspong
+
+Given enough piece → complete individual genomes → **MAGs**
+
+**MAGs** assembly requieres a lot of genomic sequences from one organism
+
+Since the sequencing is *random* we need enough **depth** in community sequencing to ensure trustability
+
+It could be really *challenging* when some species aren't that abundant
+
+Requeries *ENOUGH DNA*
+
+↑ High cost
+
+### Metabarcoding
+
+-Just general GENES
+
+↓ Cheaper → we can easily have duplicates or even triplicates
+
+- It is the collection of **small genomic fragments** in the community **amplified by PCR**
+
+Ideally  we just want or need a region to be present only once in every genome, since we are creating amplicons, that "amplify signals, so even small or poor sequences are reported.
+
+if a genome in the community **lacks the region targeted by the PCR primers**, then no amount of sequencing can give us information about that genome
+
+Most popular amplicon used for this methodology are 16S amplicons for Bacteria since every known bacterium has this particular region
+
+### MAIN METHODOLOGY
+
+<img width="499" height="692" alt="image" src="https://github.com/user-attachments/assets/69659899-b2c4-4bd2-b9dc-432e78e05b4e" />
+
+### METADATA
+
+The data about our data: notes on the origin of our samples and how we treated them
+
+
+    
+Alt 126 ~
+Alt 92 \
