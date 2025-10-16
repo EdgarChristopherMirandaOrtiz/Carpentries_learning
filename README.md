@@ -621,8 +621,11 @@ Separtate data from result files
 
 Data → New data, obtained, not results but input
 Results → New documents generated, as output, by the terminal, etc.
-Dos → written analysis, thought about the eventual publication, notes, etc.
+DoCs → written analysis, thought about the eventual publication, notes, etc.
 
+### Redirecting/copying history-protocol
+
+    history | tail -n 10 >> workshop_log_2025_10_2025.sh → we take the final 10 instructions (| tail -n 10) we put on history and redirected them to a new file (>> XXX)
 
 
 
