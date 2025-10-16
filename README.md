@@ -440,17 +440,81 @@ Is for removing a uniform part of a name from a list of files
 
     for filename in *.fastq → for [variable] in [universe]
     do
-    name = $(basename ${filename} .fastq) → first delete .fastq in the variable ran in that iteration
-    echo ${name} → will print the {new name} each time the loop runs
+    name=$(basename ${filename} .fastq) → first delete .fastq in the variable (filename) in progress in that iteration, and store it into "name"
+    echo ${name} → will print the variable "name" each time the loop runs
     done
 
+- Para crear variables los espacios si importan, no dejes espacios entre el = 
 
-    
+<img width="1380" height="127" alt="image" src="https://github.com/user-attachments/assets/b54cca3d-1ec7-4173-bfb9-8e63b132e549" />
+
+<img width="1253" height="215" alt="image" src="https://github.com/user-attachments/assets/5ea276d6-7e40-4652-8234-ea81d5cf2c88" />
+
+### Rename in loop
+
+    for filename in *.txt → (*#### is just to indacte witch math to search, not changing that prompt)
+    do
+    name=$(basename ${filename} .txt)
+    mv ${filename} ${name}_2019.txt → here mv is used to rename as mv [originalname] [new name]
+    done
+
+<img width="1495" height="210" alt="image" src="https://github.com/user-attachments/assets/1ff8d0f1-c2eb-41c8-82c9-128c1eaa6702" />
+
+<img width="1671" height="107" alt="image" src="https://github.com/user-attachments/assets/b4ef1546-49c8-4793-93d8-8c0eff3c69cc" />
+
+As it just take the *.txt it means if we re-run the prompt the _2025 will be write again if we are correct, and of course it did it
+
+<img width="1607" height="111" alt="image" src="https://github.com/user-attachments/assets/f3bf0cb0-2c4a-485b-9f5d-a2751f49fd1e" />
+
+<img width="1721" height="272" alt="image" src="https://github.com/user-attachments/assets/2b910a93-c83f-4dd8-8c64-c091ffe2eed6" />
 
 
+# WRITING FILES
 
+NANO, to create a README.txt file, as where I'm writing right now
 
+JUST **TEXT**, not tables, etc
 
+    nano README.txt
 
+The text in the bottom shows the shortcuts
 
+<img width="1727" height="298" alt="image" src="https://github.com/user-attachments/assets/00804a00-41ea-4e6e-b53a-57cd6bf57d52" />
 
+<img width="1746" height="335" alt="image" src="https://github.com/user-attachments/assets/eca04a10-4e4e-4de1-b825-766a3d225fb9" />
+
+    Ctrl O → For opening
+    Ctrl X → return to shell
+    Ctril S → Save
+
+### Matching and redirecting to file
+
+    grep -B1 -A2 NNNNNNNNNN *.fastq > scripted_bad_reads.txt → here we saw for the matches with 10 N's and then added to a new file
+
+<img width="1358" height="108" alt="image" src="https://github.com/user-attachments/assets/986c858f-7a37-49ea-b3b7-30974d7ec73c" />
+
+### Adding the commands into a file
+
+    nano bad_reads_script.sh → "sh" doesn't means anything but tell us it is a **shell script**
+
+It opens a file to text, we also added the grep command to obtain the bad data
+
+<img width="1735" height="341" alt="image" src="https://github.com/user-attachments/assets/bf09ef86-c67f-4529-a7da-e12026fe442b" />
+
+    nano bad-reads-script.sh → this instructions just openned and creted the file
+
+For now seems like nothing happened but if you open the file you made on the other text file you'll it worked (with nano [file name])
+
+<img width="1755" height="335" alt="image" src="https://github.com/user-attachments/assets/7e2e69ee-1236-4e0f-af80-977a3e173fbf" />
+
+<img width="1753" height="353" alt="image" src="https://github.com/user-attachments/assets/f9b2888a-ef56-4e56-ac60-fb1ea97563b0" />
+
+To run the document:
+
+    bash bad-reads-script.sh → this runs the script on our file
+    Ctrl X → allows us to get out of the text file
+    echo "Script finished!" → at the end echoXXX is printed
+
+<img width="865" height="37" alt="image" src="https://github.com/user-attachments/assets/da0a9c07-85eb-4cc3-9cd1-bc17a644ae4e" />
+
+# Script into a program
