@@ -518,3 +518,68 @@ To run the document:
 <img width="865" height="37" alt="image" src="https://github.com/user-attachments/assets/da0a9c07-85eb-4cc3-9cd1-bc17a644ae4e" />
 
 # Script into a program
+
+lets look at the permissions
+
+    ls -l bad-reads-script.sh
+
+<img width="809" height="83" alt="image" src="https://github.com/user-attachments/assets/49d7ca9d-e5e5-406f-a99f-a89e79102212" />
+
+### Change file permissions
+
+    chmod u=rwx,g=rwx,o=r+x bad-reads-script.sh
+
+<img width="1016" height="84" alt="image" src="https://github.com/user-attachments/assets/c5dbb5bd-0774-4ad3-8784-5f739ae4049f" />
+
+X is ssaying that we can run it as a program
+
+<img width="539" height="202" alt="image" src="https://github.com/user-attachments/assets/f09876f9-f0ca-4838-9627-24aec5732a0d" />
+
+<img width="749" height="512" alt="image" src="https://github.com/user-attachments/assets/d29bb4ef-8517-49eb-99f7-f30f102e98ec" />
+
+### Run the script on the file
+
+    ./bad-reads-script.sh → "./" is like saying "look here in the directory for the program"
+
+<img width="764" height="41" alt="image" src="https://github.com/user-attachments/assets/acbc009e-1eec-41a4-9368-d51f9ba8ca8f" />
+
+### Compress files
+
+    gzip ~/dc_workshop/data/untrimmed_fastq/*.fastq 
+    ls -lh ~/dc_workshop/data/untrimmed_fastq/*.fastq.gz → list of all comrpressed files
+
+<img width="1115" height="110" alt="image" src="https://github.com/user-attachments/assets/0d983b9a-160d-4a56-9f24-ce61e463c79b" />
+
+# DATA
+
+### Gettting data
+
+We have two main options/programs:
+
+- wget → is the short form of "world wide web get”, and its basic function is to **download**
+- cURL → “see URL”, so its primary function is to **display webpages or data** at a web address
+
+      which [program] → It search on our downloaded programs, if we dont have it, it doesn't whoe anything
+
+<img width="412" height="121" alt="image" src="https://github.com/user-attachments/assets/441a4867-678c-42e4-aa1f-c26c9ec4a99f" />
+
+### Download
+
+    wget [link]
+
+<img width="1322" height="267" alt="image" src="https://github.com/user-attachments/assets/9e82b78b-89a5-41d7-92fb-5fab25d99f36" />
+
+    curl -0 [link] → CAUTION!! it displays all the infor inside the link
+
+"-0" flag → Is telling to download and save the file with the same name it had on server
+
+<img width="1756" height="367" alt="image" src="https://github.com/user-attachments/assets/0731540d-6f2e-49be-b66a-2d050907445d" />
+
+### Moving files computer-instance
+
+s
+
+
+
+
+
