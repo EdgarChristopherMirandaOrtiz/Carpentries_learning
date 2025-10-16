@@ -333,6 +333,122 @@ This quality score is **logarithmically based**, so a quality score of 10 reflec
 <img width="772" height="169" alt="image" src="https://github.com/user-attachments/assets/1a92d641-3ea5-4759-abcd-f55d7c264799" />
 
 
+# SEARCHING ON FILES
+
+The four nucleotides that appear in DNA are abbreviated **A**, **C**, **T** and **G**
+Unknown nucleotides are represented with the letter **N**
+
+### Search 10 N's in our reads
+
+    grep NNNNNNNNNN JC1A_R2.fastq → grep is to search on files without opening them 
+
+This noisy, as grep returns a lot of output, every single line in the file that contained 10 N's
+, regardless of how long-short the file is. Additionally it just shows the sequence but not the identifier
+
+<img width="1722" height="223" alt="image" src="https://github.com/user-attachments/assets/7a765007-e52c-4234-8e35-e467ef4b3ddd" />
+
+    grep -B1 -A2 NNNNNNNNNN JCA1_R1.fastq 
+    -B → number of lines before each match
+    -A → Specific number of lines after each matching line
+    **BUT WE WANT A LINE BEFORE AND 2 AFTER THE MATCHING LINE, SO:
+    -B1 -A2
+
+<img width="1716" height="262" alt="image" src="https://github.com/user-attachments/assets/18a7892e-56cc-4dcc-87cc-d76f4728f2d6" />
+
+<img width="1719" height="183" alt="image" src="https://github.com/user-attachments/assets/5410875e-45eb-46a5-b219-eb16d8f1d5fd" />
+
+
+### Find a sequence in all documents
+
+    grep -B1 AAGTT *.fastq
+
+<img width="1736" height="268" alt="image" src="https://github.com/user-attachments/assets/652ea023-d82d-443a-8975-c0c92ea9505a" />
+
+# Redirecting output
+
+Here we need to capture the output obtained by grep, the sequence mathing on the documents I mean
+
+Objective ► obtain the matching data and redirect it to another location/file as we'll want to analyze it later 
+
+    grep -B1 -A1 [sequence] [original document] > [new location/file]
+    grep -B1 -A2 NNNNNNNNNN JC1A_21.fastq > bad_reads.txt
+
+<img width="1145" height="154" alt="image" src="https://github.com/user-attachments/assets/4e608a17-68d0-4a7d-a90d-5eb5e1717492" />
+
+### See how many lines we have
+
+    wc [file] → to see how many words, lines and characters are in the file
+
+<img width="774" height="42" alt="image" src="https://github.com/user-attachments/assets/ce792db8-9070-49d2-b088-973b657f759d" />
+
+    wc -l [file] → just to see the number of lines, again is "L" not "1"
+
+<img width="781" height="93" alt="image" src="https://github.com/user-attachments/assets/11f2407c-c742-472e-9062-18cdc48e2c52" />
+
+> [!CAUTION]
+> Every time we want to add information on the file selected to use wc, we are overwriting on it; it means, that for example you have to files you met the first wc, then go to the second one, this seconf info will replace the first file info.
+
+To avoid overwrinting use **>>** : 
+
+    grep -B1 *A2 NNNNNNNNNN JC1A_R2.fastq >> bad_reads.txt
+    wc -l bad_reads.txt
+
+<img width="1100" height="211" alt="image" src="https://github.com/user-attachments/assets/c18e9913-d760-464d-8d73-3ddab6126150" />
+
+### Matching lines by less
+
+That is why grep can redirect to a new location (less) or file 
+
+    grep -B1 -A2 NNNNNNNNNN JC1A_R2.fastq | less
+
+<img width="1733" height="309" alt="image" src="https://github.com/user-attachments/assets/5117c0f8-32ad-44c2-9a9e-62df145286f0" />
+
+
+# Writing LOOPS
+
+for → is for repeat a command or a group o commands
+
+Each time the loops run (an iteration), an item is assigned as the variable and commands are executed before moving into the next item
+
+**$ → CALL THE VARIABLE**
+
+The "$" symbol tells to the shell to treat the variable as a variable name and substitute its value in its place.
+
+    for filename in *fastq → saying the variable (filename) indicating the whole universe of *fastq files
+    do → literally "do"
+    head -n 2 ${variable} >> [final document] → (-n 2, says taking the n head lines), (${variable}, treat the variable as a variable), and the outcome variable/file, (>>, add instead of overwrite)
+    done → to close the for
+
+- The variable could be designed in the moment of the loop
+
+<img width="856" height="124" alt="image" src="https://github.com/user-attachments/assets/fef7733d-001b-45ba-aa73-f0a45170ef02" />
+
+    cat → to see the loop made on the seq_infor file
+
+<img width="1741" height="274" alt="image" src="https://github.com/user-attachments/assets/eb04a9c7-713f-44d8-9451-b182f938ede8" />
+
+# BAsename FOR LOOPS
+
+Is for removing a uniform part of a name from a list of files
+
+    basename [file's name] [wanted part to be deleted] → to quit some part of file's name
+    basename JC1A_R2.fastq .fastq
+
+-  It work wtih EXACTLY matches
+
+<img width="884" height="40" alt="image" src="https://github.com/user-attachments/assets/83207ff9-0c90-469b-8fec-a684647be540" />
+
+    for filename in *.fastq → for [variable] in [universe]
+    do
+    name = $(basename ${filename} .fastq) → first delete .fastq in the variable ran in that iteration
+    echo ${name} → will print the {new name} each time the loop runs
+    done
+
+
+    
+
+
+
 
 
 
