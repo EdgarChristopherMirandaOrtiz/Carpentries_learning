@@ -627,8 +627,30 @@ DoCs → written analysis, thought about the eventual publication, notes, etc.
 
     history | tail -n 10 >> workshop_log_2025_10_2025.sh → we take the final 10 instructions (| tail -n 10) we put on history and redirected them to a new file (>> XXX)
 
+<img width="905" height="24" alt="image" src="https://github.com/user-attachments/assets/17aac6d0-2ff6-44d4-94a2-89962c3da1df" />
 
+<img width="850" height="241" alt="image" src="https://github.com/user-attachments/assets/def6a60d-4f38-4ea0-bb59-66d692d8132a" />
 
+### Editing history documents with nano
 
+    nano [file document on .txt or .sh format]
+    nano [workshop_log_2025_10_2025.sh]
+
+<img width="1746" height="301" alt="image" src="https://github.com/user-attachments/assets/232562cc-b1e8-414c-a184-5c4e4cfb48cb" />
+
+Here I will remove "history line" number 474, add comments
+
+    Ctrl A → move to beginning
+    Ctrl E → move to end
+
+<img width="1731" height="366" alt="image" src="https://github.com/user-attachments/assets/926d675d-124d-4294-a6e5-d2e6d65725f6" />
+
+- As it is redundant or not necessary to show all history, be sure to specify on your bitacora the main protocol, is means, just leave the important:
+
+<img width="1748" height="376" alt="image" src="https://github.com/user-attachments/assets/b44eda3a-f42e-4125-a67d-43d3f49aab1f" />
+
+> [!CAUTION]
+> Mantain your bitacora out of the archives and subdirectories
+> I mean, if you delete a directorie It'll be useful as the protocols were in the main home and weren't errased
 
 
