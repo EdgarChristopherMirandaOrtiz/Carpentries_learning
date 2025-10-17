@@ -783,8 +783,238 @@ Example:
 
 ### QUALITY CONTROL
 
+lets put us on the directory, then unzip the file, and see the first read
+
+    cd ~/dc_workshop/data/untrimmed_fastq/
+    gunzip JP4D_R1.fastq.gz
+    head -n 4 JP4D_R1.fastq
+
+<img width="1782" height="304" alt="image" src="https://github.com/user-attachments/assets/9ba94697-f7c9-45f2-bcb8-e063fa1bbc9f" />
+
+The numerical value assigned to each character depends on the sequencing platform that generated the reads
+
+ The sequencing machine used to generate our data uses the standard Sanger quality PHRED score encoding, using Illumina version 1.8 onwards
+
+ <img width="764" height="103" alt="image" src="https://github.com/user-attachments/assets/13ef36ad-f950-4583-a04a-16654960264d" />
+
+### Activating an environment
+
+Environments are part of a bioinformatic tendency to do reproducible research
+
+A way to share and maintain our programs in their needed versions used for a pipeline with our colleagues and our future self
+
+CONDA → open-source package and environment management system that runs on Windows, macOS and Linux
+
+    conda activate metagenomics → activates the environment to use FastQC
+
+<img width="846" height="46" alt="image" src="https://github.com/user-attachments/assets/ce4edc40-4bee-4f8b-8e0b-d9d5ba0f0287" />
+
+    fastqc -h → helper menu
+
+<img width="920" height="251" alt="image" src="https://github.com/user-attachments/assets/6f057e56-25df-480c-b73e-11635b70072a" />
+
+### Assessing quality with FastQC
+
+Looks at quality collectively across all reads within a sample
+
+Good quality:
+
+<img width="650" height="487" alt="image" src="https://github.com/user-attachments/assets/b6d14635-844d-4f70-a12d-ce10be2aa672" />
 
 
+The x-axis displays the base position in the read, and the y-axis shows quality scores
+
+How to read:
+
+-  For each position, there is a box-and-whisker plot showing the distribution of quality scores for all reads at that position (bp).
+-  The horizontal red line indicates the median quality score, and the yellow box shows the 1st to 3rd quartile range
+-   Background is also color-coded to identify good (green), acceptable (yellow) and bad (red) quality scores.
+
+Bad quality:
+
+<img width="665" height="498" alt="image" src="https://github.com/user-attachments/assets/80e54826-3173-4f45-a551-0db3e6ea3175" />
+
+### ls shortcuts
+
+- a) ls -a → all files even hidden content
+- b) ls -S → Fils sorted by size like order
+- c) ls -l → metadata, permissions, size, modifications
+- d) ls -lh → metadata in human readabñe manner ************
+- e) ls -ahlS → All contents with metadata, includding hidden files, sorted by size
+    
+<img width="733" height="148" alt="image" src="https://github.com/user-attachments/assets/2da40d45-1f01-46f9-ada5-f5ca8842fe8a" />
+
+<img width="751" height="184" alt="image" src="https://github.com/user-attachments/assets/c0a718dd-dbf2-46da-9bc3-7901d19c0d82" />
+
+    
+### Running FastQC
+
+FASTQC can accept both zipped and unzipped files
+
+    fastqc *.fastq*
+<img width="862" height="260" alt="image" src="https://github.com/user-attachments/assets/b237d544-a553-458e-8b64-1291a2c24ae6" />
+
+<img width="756" height="295" alt="image" src="https://github.com/user-attachments/assets/ab1e0e02-acaa-4533-a426-e56c34013ff1" />
+
+<img width="803" height="266" alt="image" src="https://github.com/user-attachments/assets/ee750011-223e-44fd-9b96-cd2303f5c977" />
+
+    ls 
+    
+<img width="1326" height="84" alt="image" src="https://github.com/user-attachments/assets/2f097ae4-3a1f-42ef-a6ed-857bda09eb2e" />
+
+The FASTQC, for each input FASTQ file, it created a **".zip"** & **".html"**:
+
+- .zip → multiple output files compressed
+- .html → stable webpage displaying the summary report for each sample
+
+### Separate DATA from RESULTS
+
+Create the new directory were to locate the RESULTS
+
+    mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads 
+    
+Move the specific files
+
+    mv *.zip ~/dc_workshop/results/fastqc_untrimmed_reads/
+    mv *.html ~/dc_workshop/results/fastqc_untrimmed_reads/ 
+
+<img width="1172" height="97" alt="image" src="https://github.com/user-attachments/assets/d6768428-71da-4ec5-951e-d8bdee59f8b7" />
+
+<img width="1774" height="67" alt="image" src="https://github.com/user-attachments/assets/6c54dd52-9413-4cb2-8c0d-3b85c9f2791b" />
+
+### Viewing FASTQC results
+
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/16c99e40-d73e-49ff-b5fd-2ca6e6aae9f5" />
+
+
+<img width="751" height="376" alt="image" src="https://github.com/user-attachments/assets/80538b4f-7529-4e45-9349-8dec4492f6ba" />
+
+### Other FASTQC outputs
+
+- **Per tile sequence quality**: the machines that perform sequencing are divided into tiles. This plot displays patterns in base quality along these tiles. Consistently low scores are often found around the edges, but hot spots could also occur in the middle if an air bubble was introduced during the run.
+- **Per sequence quality scores**: a density plot of quality for all reads at all positions. This plot shows what quality scores are most common.
+- **Per base sequence content**: plots the proportion of each base position over all of the reads. Typically, we expect to see each base roughly 25% of the time at each position, but this often fails at the beginning or end of the read due to quality or adapter content.
+- **Per sequence GC content**: a density plot of average GC content in each of the reads.
+- **Per base N content**: the percent of times that ‘N’ occurs at a position in all reads. If there is an increase at a particular position, this might indicate that something went wrong during sequencing.
+- **Sequence Length Distribution**: the distribution of sequence lengths of all reads in the file. If the data is raw, there is often a sharp peak; however, if the reads have been trimmed, there may be a distribution of shorter lengths.
+- **Sequence Duplication Levels**: a distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). This might not be true if the samples are high coverage (or RNA-seq or amplicon).
+- **Overrepresented sequences**: a list of sequences that occur more frequently than would be expected by chance.
+- **Adapter Content**: a graph indicating where adapter sequences occur in the reads.
+K-mer Content: a graph showing any sequences which may show a positional bias within the reads.
+
+### FASTQC text output
+
+lets unzip files
+
+    unzip *.zip
+
+!!! It FAILED, because some of them aren't files are directories, and unzip expect to have just **files**
+
+<img width="1019" height="155" alt="image" src="https://github.com/user-attachments/assets/0c5aee6d-f37b-41ae-98df-a2e974505f90" />
+
+** THE CORRECT WAY**
+
+    for filename in *.zip
+    do
+    unzip $filename
+    done
+
+<img width="1162" height="355" alt="image" src="https://github.com/user-attachments/assets/d6a635c8-3947-4f7b-802a-2fb659783783" />
+
+Here "ls" will show just the *same zipped* directories, but *added other files*
+
+This new files are directories
+
+    ls 
+    ls -F → directories are the ones with "/"
+    
+<img width="1127" height="147" alt="image" src="https://github.com/user-attachments/assets/3490d6be-3137-408a-b0e0-f452f587cb12" />
+
+To see a directory without oppening it: 
+
+    ls -F [directory name]
+    ls -F JC1A_R1_fastqc/
+
+<img width="1180" height="79" alt="image" src="https://github.com/user-attachments/assets/c441f2f0-71c4-4924-a7e2-39ad26e39d5c" />
+
+Also for preview summary.txt:
+
+    less JC1A_R1_fastqc/summary.txt
+
+    q → EXIT
+
+<img width="1131" height="350" alt="image" src="https://github.com/user-attachments/assets/f62c1a4f-7cdf-470a-a1f9-65a1cd12bdd6" />
+
+### Document summaries FASTQC
+
+Here we create a file just for documents
+
+Then we use "CAT" to combine several files, from each summary (*/summary.txt) to the new direction (~/dc_workshop/docs/...) with the new file name (...fastqc_summaries.txt)
+
+    $ mkdir -p ~/dc_workshop/docs
+    cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
+
+<img width="1317" height="77" alt="image" src="https://github.com/user-attachments/assets/4db08002-a170-4f88-879b-ab2e3eea418c" />
+
+### Failed tests
+
+Which samples failed at least one of FastQC’s quality tests
+
+    grep FAIL fastqc_summaries.txt
+
+<img width="1351" height="259" alt="image" src="https://github.com/user-attachments/assets/ba31192c-98b9-4a6e-a0f5-de52f5216c1b" />
+
+
+### MultiQC
+
+a tool that can show the quality of many samples at once.
+
+https://seqera.io/multiqc/
+
+### Automating a quality control workflow
+
+Nano script 
+
+    nano quality_control.sh
+
+Inside the commands
+
+    set -e # This will ensure that our script will exit if an error occurs
+    cd ~/dc_workshop/data/untrimmed_fastq/
+    
+    echo "Running FastQC ..."
+    fastqc *.fastq*
+    
+    mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads
+    
+    echo "Saving FastQC results..."
+    mv *.zip ~/dc_workshop/results/fastqc_untrimmed_reads/
+    mv *.html ~/dc_workshop/results/fastqc_untrimmed_reads/
+    
+    cd ~/dc_workshop/results/fastqc_untrimmed_reads/
+    
+    echo "Unzipping..."
+    for filename in *.zip
+        do
+        unzip $filename
+        done
+    
+    echo "Saving summary..."
+    mkdir -p ~/dc_workshop/docs
+    cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
+
+# Trimming and filtering
+
+ Get rid of sequence data that does not meet our quality standard
+
+
+
+
+
+
+# ENTER OTHER DIRECTIONS
+
+<img width="1728" height="227" alt="image" src="https://github.com/user-attachments/assets/6397143b-176e-432b-b49f-b5f01dfc4c87" />
 
 
 
