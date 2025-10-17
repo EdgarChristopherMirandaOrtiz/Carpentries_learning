@@ -1005,7 +1005,10 @@ Inside the commands
 
 # Trimming and filtering
 
- Get rid of sequence data that does not meet our quality standard
+Get rid of sequence data that does not meet our quality standard
+
+Determine the quality threshold we will accept
+
 
 
 
