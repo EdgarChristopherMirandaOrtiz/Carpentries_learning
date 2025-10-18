@@ -1009,6 +1009,100 @@ Get rid of sequence data that does not meet our quality standard
 
 Determine the quality threshold we will accept
 
+    trimmomatic → will show you the different versions
+
+► We must specify wheter we have paired-end (PE) or single-end (SE)
+
+► The order in wich we specify the arguments is essential
+
+<img width="1421" height="180" alt="image" src="https://github.com/user-attachments/assets/03e6c34b-4ad7-4ee3-ae78-49c0f368007f" />
+
+### Trimming input-output setting
+
+Trimmomatic will expect **one file as input**, after which you can enter the **optional settings** and, lastly, the **name of the output file**.
+
+<img width="769" height="332" alt="image" src="https://github.com/user-attachments/assets/8323f51f-b83e-4a83-8dec-ab7f2555774b" />
+
+### Trimming parameters
+
+<img width="744" height="422" alt="image" src="https://github.com/user-attachments/assets/b9672b8f-fa3c-4363-92e8-9a9dc8c58a9e" /> <img width="720" height="794" alt="image" src="https://github.com/user-attachments/assets/1046a552-1012-4e91-b623-df98830173ad" />
+
+### EXAMPLE of trimming code
+
+<img width="750" height="146" alt="image" src="https://github.com/user-attachments/assets/61414f60-4920-4ec5-ba14-93b6f354822b" />
+
+<img width="736" height="510" alt="image" src="https://github.com/user-attachments/assets/966b8543-329b-468e-a145-b48b7fa3fb08" />
+
+
+### Using \ to separate code chunks
+
+    echo he\
+    llo\
+     worl\
+    d
+
+<img width="1057" height="134" alt="image" src="https://github.com/user-attachments/assets/830676b1-e558-46da-9e9c-7fe1d3ab47dc" />
+
+### Running trimmomatic
+
+Check if Universal adapters are present in our sample
+
+In *next-generation sequencing* (NGS), **adapters** are short, synthetic DNA sequences that are ligated to the ends of DNA fragments before sequencing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
