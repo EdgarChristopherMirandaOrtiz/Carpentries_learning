@@ -1181,6 +1181,11 @@ control + a    .....    + b
 
 <img width="738" height="84" alt="image" src="https://github.com/user-attachments/assets/478082df-316d-4685-8773-428af81858e3" />
 
+→ Is already loaded in the screen
+
+<img width="1244" height="366" alt="image" src="https://github.com/user-attachments/assets/7bc2cc51-3d70-4000-b1b7-e17b65b08a2f" />
+
+
 
 ### Reconecting to a session
 
@@ -1202,19 +1207,31 @@ straightforward options, just specifying our forward paired-end reads with -1 an
 
 → Output directory where we want our results to be stored.
 
-    metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
+*It is on the screen*
+
+      metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
+
+The we write or type
+
+    control + a    .....    + b
 
 <img width="1367" height="372" alt="image" src="https://github.com/user-attachments/assets/060fa72b-bb2a-4fc1-bfb5-ca62eaa524ca" />
+<img width="1444" height="73" alt="image" src="https://github.com/user-attachments/assets/19997ac8-f5df-46bc-a61f-09547828ce0d" />
+
 
 > [!Warning]
 > ***ALways make sure conda is active***
 > ***Always make sure metaspades.py is installed***
+
 
 <img width="1467" height="474" alt="image" src="https://github.com/user-attachments/assets/30a159b6-75be-4e3e-950d-d97482062852" />
 
 <img width="1316" height="162" alt="image" src="https://github.com/user-attachments/assets/6951b176-bfcd-4a01-9a1a-8485781d00e9" />
 
 
+### Check how it went
+
+<img width="1368" height="351" alt="image" src="https://github.com/user-attachments/assets/8de61300-473c-4b62-9284-aee8c5dc3940" />
 
 
 
