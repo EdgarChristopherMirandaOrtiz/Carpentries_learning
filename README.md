@@ -1239,10 +1239,41 @@ The we write or type
 
 <img width="838" height="109" alt="image" src="https://github.com/user-attachments/assets/6dfb03c3-39ae-4626-9443-5842c8166ca8" />
 
+### Output files
+
+On the *~/dc_workshop/results/assembly_JC1A$* direction
+
+    ls -F
+- Assembly are reds (contigs.fasta & scaddolds.fasta)
+- Individual results with k-mers equal to those nombers (blue)
+- Corrected read with the SPAdes (Yellow)
+- Information needed to visualize the assembly by different means, like the program *Bandage* (green)
+
+<img width="1254" height="100" alt="image" src="https://github.com/user-attachments/assets/12d2dbf7-40f8-49cb-b0eb-2c4c9b02ee6b" />
+
+### Rename files
+
+    for name in *
+    do
+    mv $name JCA_$name
+    done
+
+→ Her we do not use *$filename* because as it says is for *file* and we want to rename all
+
+<img width="1304" height="207" alt="image" src="https://github.com/user-attachments/assets/4ecc245f-9a4c-4584-8689-ef19d1c326b5" />
+
+### Compare Fasta from assembly
+
+    grep '>' *contigs.fasta | wc -l
+    grep '>' *scaffolds.fasta | wc -l
+
+<img width="941" height="84" alt="image" src="https://github.com/user-attachments/assets/e5c7df1a-8bfa-4ba5-9e56-8f964ac73b3a" />
+
+**MetaQuast** is a program that gives you these metrics for metagenome assemblies in an interactive report and text files and plots.
 
 
 
-
+# Metagenomic binning
 
 
 
