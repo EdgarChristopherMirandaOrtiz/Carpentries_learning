@@ -1275,13 +1275,143 @@ On the *~/dc_workshop/results/assembly_JC1A$* direction
 
 # Metagenomic binning
 
+Original genomes (each specie) in the sample can be separated with a process called binning, with enough reads to reconstruct a genome.
+
+Genomes reconstructed from metagenomic assembles are called **MAGs** (Metagenome-Assemble Genomes)
+
+ Ideally, each bin corresponds to only one original genome (a MAG).
+
+<img width="435" height="631" alt="image" src="https://github.com/user-attachments/assets/8ea18063-ae2c-4138-ab0f-2ac8da5ca906" />
+
+An obvious way to separate contigs that correspond to a different species is by their taxonomic assignation
+
+More reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition), or their coverage (abundance). Such as the algorith *Maxbin*:
+
+https://sourceforge.net/projects/maxbin/files/
+
+> [!WARNING]
+> Relation between MAGs and depth
+> Consider:
+> Size range of genomes between organisms (acterial genome size range between 4Mbp and 13Mbp (Mb=10^6 bp))
+> Number of reads
+> Size in bp of a read
+
+### Run MaxBin
+
+Arguments it needs are:
+
+- FASTA file of the assembly
+- FASTQ with the forward and reverse reads
+- Output directory
+- Name
+
+      cd ~/dc_workshop/results/assembly_JC1A/
+      mkdir MAXBIN
+ run_MaxBin.pl -thread 8 -contig JCA1_contigs.fasta -reads ../../data/trimmed_fastq/JC1A_R1.trim.fastq.gz -reads2 ../../data/trimmed_fastq/JC1A_R2.trim.fastq.gz -out MAXBIN/JCA1
+
+<img width="1423" height="61" alt="image" src="https://github.com/user-attachments/assets/ed8e03a4-53e9-468e-97ac-0b618fb1eceb" />
+
+It seems impossible to bin our assembly because the number of marker genes is less than 1. We could have expected this as we know it is a small sample.
+
+<img width="1428" height="348" alt="image" src="https://github.com/user-attachments/assets/b2b3164a-8a08-4e43-a72a-ea3d4ee69a22" />
+
+### E.j. Other example
+
+    cd ~/dc_workshop/mags/
+
+    mkdir MAXBIN
+
+    run_MaxBin.pl -thread 8 -contig JP4D_contigs.fasta -reads ../data/trimmed_fastq/JP4D_R1.trim.fastq.gz -reads2 ../data/trimmed_fastq/JP4D_R2.trim.fastq.gz -out MAXBIN2/JP4D
+
+<img width="1412" height="108" alt="image" src="https://github.com/user-attachments/assets/bd6c1c66-bb55-4284-a4a5-d3b9670284db" />
+
+<img width="1236" height="532" alt="image" src="https://github.com/user-attachments/assets/17fd4723-a88b-448d-a78d-a93e4b5f3622" />
+
+# Binning summary
+
+    cad MAXBIN/JP4D.summary
+
+- Completeness: which data are we working with.
+- Genome size and GC content: like genomic fingerprints of taxa
+- Measure contaminations: know if we have only one genome in our bin
+
+<img width="797" height="121" alt="image" src="https://github.com/user-attachments/assets/745fb66c-ba3e-4e75-9c52-a756c99154ba" />
+
+### Quality check
+
+The quality of a **MAG** is highly dependent on:
+
+- Size genome of the species
+- Abundance in the community
+- Depth of sequencing
+- Contamination → It conteins 1 genome?
+
+**CheckM**: https://github.com/Ecogenomics/CheckM
+
+ It measures completeness and contamination by counting marker genes in the MAGs
+
+### RUN at DOMAIN LEVEL
+
+    mkdir CHEKM
+
+    checkm taxonomy_wf domain Bacteria -x fasta MAXBIN/ CHECKM/
+
+
+<img width="1206" height="264" alt="image" src="https://github.com/user-attachments/assets/cea9ca25-9682-4d8b-b7f6-42370ad6b8d5" />
+
+Final page
+
+<img width="1385" height="254" alt="image" src="https://github.com/user-attachments/assets/f0789f04-f89a-4c8b-9045-2b07af2f4601" />
+
+### Export
+
+Ideally, we would like to get only one contig per bin, with a length similar to the genome size of the corresponding taxa **BUT IT'S DIFFICULT**
+
+If we arrange our contigs by size, from larger to smaller, and divide the whole sequence in half, N50 is the size of the smallest contig in the half that has the larger contigs; and L50 is the number of contigs in this half of the sequence. So we want big N50 and small L50 values for our genomes. Read What is N50?.
+
+    checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_table -o 2
+
+The table looks like:
+
+https://github.com/carpentries-lab/metagenomics-analysis/blob/gh-pages/files/quality_JP4D.tsv
+
+The question of how much contamination we can tolerate and how much completeness we need certainly depends on the scientific question being tackled, but in the CheckM paper, there are some parameters that we can follow:
+
+https://genome.cshlp.org/content/25/7/1043
 
 
 
+# TAXONOMIC ASSIGNMENT
 
+a process of assigning an **Operational Taxonomic Unit** (OTU, that is, **groups of related individuals**) to sequences that can be **reads or contigs**.
 
+Sequences are compared against a database constructed using complete genomes
 
+### Strategies
 
+- BLAST: Using BLAST or DIAMOND, these mappers search for the most likely hit for each sequence within a database of genomes → **SLOW**
+
+- Markers: They look for markers of a database made a priori in the sequences to be classified and assigned the taxonomy depending on the hits obtained
+
+- K-mers: A genome database is broken into pieces of length k to be able to search for unique pieces by taxonomic group, from a lowest common ancestor (LCA), passing through phylum to species. *algorithm **breaks the query sequence(reads/contigs)** into pieces of length k, looks for **where these are placed within the tree** and make the classification with the **most probable position.***
+
+<img width="682" height="377" alt="image" src="https://github.com/user-attachments/assets/7f3cdb9c-becb-491b-b22d-1882145d892f" />
+
+### Abundance bias
+
+The abundance of each taxon or OTU in our sample is **_Key_**
+
+**Absolute abundance** of a taxon: number of sequences (reads or contigs) assigned to it
+
+**Relative abundance** proportion of sequences assigned to it
+
+<img width="2087" height="1010" alt="image" src="https://github.com/user-attachments/assets/412578ee-0c59-4176-b168-29edde604e29" />
+
+### Using Kraken 2
+
+→ Newest version of Kraken
+
+- Is a taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds
 
 
 
@@ -1304,6 +1434,8 @@ On the *~/dc_workshop/results/assembly_JC1A$* direction
 # ENTER OTHER DIRECTIONS
 
 <img width="1728" height="227" alt="image" src="https://github.com/user-attachments/assets/6397143b-176e-432b-b49f-b5f01dfc4c87" />
+
+
 
 
 
