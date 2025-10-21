@@ -1233,6 +1233,11 @@ The we write or type
 
 <img width="1368" height="351" alt="image" src="https://github.com/user-attachments/assets/8de61300-473c-4b62-9284-aee8c5dc3940" />
 
+### Exit
+
+    exit
+
+<img width="838" height="109" alt="image" src="https://github.com/user-attachments/assets/6dfb03c3-39ae-4626-9443-5842c8166ca8" />
 
 
 
