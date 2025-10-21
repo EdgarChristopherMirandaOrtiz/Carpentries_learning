@@ -1146,16 +1146,73 @@ Problems faces by metagenomics:
 
 SPAdes already deals with the non-uniform coverage problem in its algorithm
 
+> [!WARNING]
+> The process of (metagenomics) assembly can take a long time, and if the connection to the server drops, the process is killed, and the process needs to restart
+> **BUT** WE CAN CREATE A **SCREEN**
+
+## Screen sessions
+
+### Starting a new session
+
+A *session* can be considered a new window or screen
+
+We might open a terminal to do one thing on the computer and then open a new terminal to work on another task
+
+    screen -S assembly  → screen -S [descriptive name]
+
+This steps creates a session with the name *assembly*
+
+This session will stay active until we close it. Even if we log out or work on something else, the jobs you start in this session will run until completion.
+
+<img width="1440" height="358" alt="image" src="https://github.com/user-attachments/assets/b3dbb6db-a4ea-4e8d-a6cd-1d6724538b79" />
 
 
+### Detach session
+
+We can detach from a session by:
+
+control + a    .....    + b
+
+<img width="1440" height="357" alt="image" src="https://github.com/user-attachments/assets/63580d99-fbee-43cc-bff0-884a974d14d9" />
+
+### Seen active sessions
+
+    screen -ls
+
+<img width="738" height="84" alt="image" src="https://github.com/user-attachments/assets/478082df-316d-4685-8773-428af81858e3" />
 
 
+### Reconecting to a session
 
+    screen -r [session_name]
 
+### Kill a session
 
+    exit
 
+### Installed correctly
 
+    metaspades.py
 
+<img width="908" height="327" alt="image" src="https://github.com/user-attachments/assets/bbc413b1-5690-414f-ae55-ba7c2efa2806" />
+
+### RUN MetaSPAdes
+
+straightforward options, just specifying our forward paired-end reads with -1 and reverse paired-end reads with -2
+
+→ Output directory where we want our results to be stored.
+
+    metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
+
+<img width="1367" height="372" alt="image" src="https://github.com/user-attachments/assets/060fa72b-bb2a-4fc1-bfb5-ca62eaa524ca" />
+
+> [!Warning]
+> ***ALways make sure conda is active***
+> ***Always make sure metaspades.py is installed***
+
+<img width="1467" height="474" alt="image" src="https://github.com/user-attachments/assets/30a159b6-75be-4e3e-950d-d97482062852" />
+
+<img width="1316" height="162" alt="image" src="https://github.com/user-attachments/assets/6951b176-bfcd-4a01-9a1a-8485781d00e9" />
 
 
 
