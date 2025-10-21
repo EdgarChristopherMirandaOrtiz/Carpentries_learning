@@ -1122,15 +1122,29 @@ The 2 files per initial reads
 
 Do it jsjs
 
+# Assembling reads
 
+The *assembly process* groups *reads* into **contigs**, and contigs into **scaffolds** to obtain ideally the sequence of whole **chromosome**
 
+GENOME & METAGENOME
 
+**_Assembly Algorithms for Next-Generation Sequencing Data_**:
 
+https://pmc.ncbi.nlm.nih.gov/articles/PMC2874646/
 
+<img width="868" height="777" alt="image" src="https://github.com/user-attachments/assets/84627adc-da6b-48ca-9675-7bf5851ddb4d" />
 
+### MetaSPAdes
 
+MetaSPAdes is an NGS de novo assembler for assembling large and complex metagenomics data, and it is one of the most used and recommended. It is part of the SPAdes toolkit, which contains several assembly pipelines
 
+Problems faces by metagenomics:
 
+- Differences in coverage between the genomes due to the differences in abundance in the sample
+- The fact that different species often share conserved regions
+- The presence of several strains of a single species in the community.
+
+SPAdes already deals with the non-uniform coverage problem in its algorithm
 
 
 
