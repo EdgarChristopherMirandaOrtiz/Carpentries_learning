@@ -1043,16 +1043,84 @@ Trimmomatic will expect **one file as input**, after which you can enter the **o
 
 <img width="1057" height="134" alt="image" src="https://github.com/user-attachments/assets/830676b1-e558-46da-9e9c-7fe1d3ab47dc" />
 
+### Compress files
+
+    gzip JP4D_R1.fastq
+
+<img width="875" height="135" alt="image" src="https://github.com/user-attachments/assets/25bf92ac-bc0f-4917-9f2f-77bd598d7a1b" />
+
 ### Running trimmomatic
 
 Check if Universal adapters are present in our sample
 
 In *next-generation sequencing* (NGS), **adapters** are short, synthetic DNA sequences that are ligated to the ends of DNA fragments before sequencing.
 
+The **adapter sequences** came with the installation of Trimmomatic and it is located in our current directory in the file **TruSeq3-PE.fa**.
+
+- Run Trimmomatic on one of our paired-end sample
+- Sliding window of size 4 that will remove bases if their Phred score is below 20
+- Discard any reads that do not have at least 25 bases remaining after this trimming step
+
+<img width="1412" height="195" alt="image" src="https://github.com/user-attachments/assets/f4c12d01-6b78-492d-b3e5-7f4dae7d8a34" />
+
+<img width="1400" height="255" alt="image" src="https://github.com/user-attachments/assets/b54f9de1-9944-4e18-8cd8-0bbc599b748d" />
+
+<img width="1400" height="255" alt="image" src="https://github.com/user-attachments/assets/c666ea45-b509-4b2e-a594-7bc79f9975ee" />
+
+1) What percent of reads did we discard from our sample? → 1.76% 
+2) What percent of reads did we keep both pairs? 66.85% 
+
+### Confirm outputs files:
+
+    ls JP4D*
+
+<img width="1184" height="63" alt="image" src="https://github.com/user-attachments/assets/51aaa54f-493c-44bf-894f-f55737f0a0e0" />
+
+The output files are also FASTQ files. It should be smaller than our input file because we have removed reads
+
+    ls J4PD* -l -h
+
+<img width="956" height="172" alt="image" src="https://github.com/user-attachments/assets/e28e688d-d478-4ad1-8456-d4269cb676fd" />
+
+### ONE BY ONE? → FOOOOOOOOR
+
+    $ for infile in *_R1.fastq.gz
+    do
+    base=$(basename ${infile} _R1.fastq.gz)
+    trimmomatic PE ${infile} ${base}_R2.fastq.gz \
+    ${base}_R1.trim.fastq.gz ${base}_R1un.trim.fastq.gz \
+    ${base}_R2.trim.fastq.gz ${base}_R2un.trim.fastq.gz \
+    SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
+    done
+
+** It should take a few minutes for Trimmomatic to run for each of our four input files
+
+<img width="1085" height="168" alt="image" src="https://github.com/user-attachments/assets/62921ba3-4335-4ee8-bdf6-016d7523c5fc" />
+
+<img width="1430" height="345" alt="image" src="https://github.com/user-attachments/assets/76cf7fc8-5c9a-4f33-965e-357269d8356a" />
+
+The 2 files per initial reads
+
+<img width="1037" height="87" alt="image" src="https://github.com/user-attachments/assets/26a9a272-2be8-453d-a67d-4219ea1e2997" />
 
 
+### Move results (arrange)
 
+    cd ~/dc_workshop/data/untrimmed_fastq
+    
+    mkdir ../trimmed_fastq
+    
+    mv *.trim* ../trimmed_fastq
+    
+    cd ../trimmed_fastq
+    
+    ls
 
+<img width="1038" height="182" alt="image" src="https://github.com/user-attachments/assets/19d333a0-bc09-497a-92f5-57d8280cb030" />
+
+### RE-RUN FASTQC HTML
+
+Do it jsjs
 
 
 
